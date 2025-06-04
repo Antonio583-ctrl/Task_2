@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "build": "npx tsc && npx copyfiles -u 1 src/Vista/**/* src/dist/Vista",
+    "build": "npx tsc && npx copyfiles -u 1 src/Vista/**/* dist/Vista",
     "start": "node dist/server.js",
     "dev": "nodemon src/server.ts"
   },
