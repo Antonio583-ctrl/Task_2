@@ -3,11 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "scripts": {
-  "build": "npx tsc && npx copyfiles -u 1 src/Vista/**/* dist/Vista",
-  "start": "node dist/server.js",
-  "dev": "nodemon src/server.ts"
-}
+    "build": "npx tsc && npx copyfiles -u 1 src/Vista/**/* dist/Vista",
+    "start": "node dist/server.js",
+    "dev": "nodemon src/server.ts"
   },
   "keywords": [],
   "author": "",
