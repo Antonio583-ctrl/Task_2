@@ -11,13 +11,15 @@ const app = express();
 const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Sirve archivos estáticos desde la carpeta 'Vista' (después del build será dist/Vista)
 app.use(express.static(path.join(__dirname, 'Vista')));
 
 app.use('/', SiteRuta);    
 app.use(ContactosRuta);
 app.use(PagoRutas);
 
-// Middleware para servir index.html en rutas no encontradas
+// Middleware para servir index.html en rutas no encontradas (SPA o fallback)
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'Vista', 'index.html'), (err) => {
     if (err) {
