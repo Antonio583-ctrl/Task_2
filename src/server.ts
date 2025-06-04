@@ -13,6 +13,11 @@ const PORT = 3000;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'Vista')));
 
+app.use('/', SiteRuta);    
+app.use(ContactosRuta);
+app.use(PagoRutas);
+
+// Middleware para servir index.html en rutas no encontradas
 app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, 'Vista', 'index.html'), (err) => {
     if (err) {
@@ -20,10 +25,6 @@ app.use((req, res, next) => {
     }
   });
 });
-
-app.use('/', SiteRuta);    
-app.use(ContactosRuta);
-app.use(PagoRutas);
 
 initializeDatabase().then(() => {
   app.listen(PORT, () => {
